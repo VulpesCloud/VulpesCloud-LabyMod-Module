@@ -22,7 +22,8 @@ dependencies {
     annotationProcessor("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
 
     implementation("net.labymod.serverapi:server-velocity:1.0.6")
-    compileOnly("net.labymod.serverapi:server-common:1.0.6")
+    implementation("net.labymod.serverapi:server-common:1.0.6")
+    implementation("net.labymod.serverapi:server-api:1.0.6")
 }
 
 kotlin {

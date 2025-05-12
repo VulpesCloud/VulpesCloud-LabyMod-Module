@@ -2,10 +2,12 @@ package de.vulpescloud.modules.labymod.velocity
 
 import com.velocitypowered.api.event.EventManager
 import com.velocitypowered.api.event.Subscribe
+import com.velocitypowered.api.event.connection.PluginMessageEvent
 import com.velocitypowered.api.event.connection.PostLoginEvent
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent
 import com.velocitypowered.api.plugin.Plugin
 import com.velocitypowered.api.plugin.PluginContainer
+import com.velocitypowered.api.proxy.Player
 import com.velocitypowered.api.proxy.ProxyServer
 import jakarta.inject.Inject
 import net.labymod.serverapi.server.velocity.LabyModProtocolService
@@ -31,6 +33,16 @@ constructor(
     fun onPlayerPostLogin(event: PostLoginEvent) {
         logger.info("Trying RPC for ${event.player.username} (${event.player.uniqueId})")
         DiscordRPCUtils.testRPC(event.player.uniqueId)
+    }
+
+    @Subscribe
+    fun onPluginMessageEvent(event: PluginMessageEvent) {
+        if (event.identifier.id.equals("labymod3:main")) {
+            if (event.source is Player) {
+                val player = event.source as Player
+                DiscordRPCUtils.testRPC(player.uniqueId)
+            }
+        }
     }
 
 }
