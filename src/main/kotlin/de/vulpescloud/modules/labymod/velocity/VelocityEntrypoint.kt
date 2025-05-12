@@ -37,8 +37,11 @@ constructor(
 
     @Subscribe
     fun onPluginMessageEvent(event: PluginMessageEvent) {
+        logger.info("Plugin message received!")
         if (event.identifier.id.equals("labymod3:main")) {
+            logger.info("Identifier is labymod3:main")
             if (event.source is Player) {
+                logger.info("Source is player")
                 val player = event.source as Player
                 DiscordRPCUtils.testRPC(player.uniqueId)
             }
