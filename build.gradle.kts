@@ -23,7 +23,7 @@ dependencies {
 
     implementation("net.labymod.serverapi:server-velocity:1.0.6")
     implementation("net.labymod.serverapi:server-common:1.0.6")
-    implementation("net.labymod.serverapi:server-api:1.0.6")
+    // implementation("net.labymod.serverapi:server-api:1.0.6")
 }
 
 kotlin {
