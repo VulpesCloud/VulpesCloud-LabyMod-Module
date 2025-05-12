@@ -11,6 +11,7 @@ import com.velocitypowered.api.proxy.Player
 import com.velocitypowered.api.proxy.ProxyServer
 import jakarta.inject.Inject
 import net.labymod.serverapi.server.velocity.LabyModProtocolService
+import net.labymod.serverapi.server.velocity.event.LabyModPlayerJoinEvent
 import org.slf4j.LoggerFactory
 
 @Plugin(id = "vulpescloud-proxy", name = "VulpesCloud-Proxy", authors = ["TheCGuy"])
@@ -43,9 +44,14 @@ constructor(
             if (event.source is Player) {
                 logger.info("Source is player")
                 val player = event.source as Player
-                DiscordRPCUtils.testRPC(player.uniqueId)
+                // DiscordRPCUtils.testRPC(player.uniqueId)
             }
         }
+    }
+
+    @Subscribe
+    fun onLabyModPlayerJoinEvent(event: LabyModPlayerJoinEvent) {
+        DiscordRPCUtils.testRPC(event.labyModPlayer())
     }
 
 }
