@@ -2,6 +2,7 @@ package de.vulpescloud.modules.labymod.velocity
 
 import com.velocitypowered.api.event.EventManager
 import com.velocitypowered.api.event.Subscribe
+import com.velocitypowered.api.event.connection.PostLoginEvent
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent
 import com.velocitypowered.api.plugin.Plugin
 import com.velocitypowered.api.plugin.PluginContainer
@@ -24,6 +25,11 @@ constructor(
     @Subscribe
     fun onProxyInitializeEvent(event: ProxyInitializeEvent) {
         LabyModProtocolService.initialize(this, proxyServer, logger)
+    }
+
+    @Subscribe
+    fun onPlayerPostLogin(event: PostLoginEvent) {
+        DiscordRPCUtils.testRPC(event.player.uniqueId)
     }
 
 }
