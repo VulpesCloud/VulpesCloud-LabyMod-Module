@@ -1,0 +1,9 @@
+{
+  "id": "vulpescloud-labymod-module",
+  "name": "VulpesCloud-LabyMod-Module",
+  "version": "1.0.0",
+  "authors": [
+    "TheCGuy"
+  ],
+  "main": "de.vulpescloud.modules.labymod.velocity.VelocityEntrypoint"
+}

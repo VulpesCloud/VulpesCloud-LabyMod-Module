@@ -1,0 +1,15 @@
+{
+  "name": "VulpesCloud-LabyMod-Module",
+  "description": "Adds some functionality to the LabyMod client.",
+  "main": "de.vulpescloud.modules.labymod.node.ModuleEntrypoint",
+  "authors": [
+    "TheCGuy"
+  ],
+  "website": "https://vulpescloud.de",
+  "version": "1.0.0",
+  "headNodeOnly": false,
+  "copyToServices": true,
+  "platforms": [
+    "velocity"
+  ]
+}
