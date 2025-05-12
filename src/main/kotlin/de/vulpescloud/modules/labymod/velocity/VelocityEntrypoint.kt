@@ -29,6 +29,7 @@ constructor(
 
     @Subscribe
     fun onPlayerPostLogin(event: PostLoginEvent) {
+        logger.info("Trying RPC for ${event.player.username} (${event.player.uniqueId})")
         DiscordRPCUtils.testRPC(event.player.uniqueId)
     }
 

@@ -10,6 +10,8 @@ object DiscordRPCUtils {
     fun testRPC(uuid: UUID) {
         val discordRPC = DiscordRPC.createWithStart("Test", System.currentTimeMillis())
 
+        LabyModProtocolService.get().getPlayer(uuid)!!.sendDiscordRPC(discordRPC)
+
         LabyModProtocolService.get().labyModProtocol().sendPacket(uuid, DiscordRPCPacket(discordRPC))
     }
 
