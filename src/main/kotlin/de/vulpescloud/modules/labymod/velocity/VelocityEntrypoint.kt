@@ -38,8 +38,8 @@ constructor(
     @Subscribe
     fun onPluginMessageEvent(event: PluginMessageEvent) {
         logger.info("Plugin message received! IdentifierId: ${event.identifier.id}")
-        if (event.identifier.id.equals("labymod3:main")) {
-            logger.info("Identifier is labymod3:main")
+        if (event.identifier.id.equals("labymod:neo")) {
+            logger.info("Identifier is labymod:neo")
             if (event.source is Player) {
                 logger.info("Source is player")
                 val player = event.source as Player
