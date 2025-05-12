@@ -37,7 +37,7 @@ constructor(
 
     @Subscribe
     fun onPluginMessageEvent(event: PluginMessageEvent) {
-        logger.info("Plugin message received!")
+        logger.info("Plugin message received! IdentifierId: ${event.identifier.id}")
         if (event.identifier.id.equals("labymod3:main")) {
             logger.info("Identifier is labymod3:main")
             if (event.source is Player) {
